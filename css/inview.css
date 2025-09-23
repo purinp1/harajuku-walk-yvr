@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+/* =========================================================================
+   Common settings for up, down, transform1, and transform2
+   (Initial state)
+   ========================================================================= */
+.up, .down, .transform1, .transform2 {
+  position: relative;
+  opacity: 0;   /* Transparency (transparent state) */
+}
+
+/* =========================================================================
+   Common settings for up, down, transform1, and transform2
+   (Action to be executed when the element is visible)
+   ========================================================================= */
+.upstyle, .downstyle, .transform1style, .transform2style {
+  opacity: 1;       /* Transparency (fully visible state) */
+  transition: 1s 0.5s;  /* 1s is the animation duration. 0.5s is the delay before starting. */
+}
+
+/* =========================================================================
+   up style: Fading in from bottom to top
+   ========================================================================= */
+/* Initial state */
+.up {
+  opacity: 0;
+  transform: translateY(20px); /* Move down by 20px and wait */
+  transition: all 1s ease-out;
+}
+
+/* Action to be executed when the element is visible */
+.upstyle {
+  opacity: 1;
+  transform: translateY(0); /* Return to original position */
+}
+
+/* =========================================================================
+   down style: Fading in from top to bottom
+   ========================================================================= */
+/* Initial state */
+.down {
+  top: -20px; /* Start from 20px above the reference position */
+}
+
+/* Action to be executed when the element is visible */
+.downstyle {
+  top: 0px; /* Return to the reference position */
+}
+
+/* =========================================================================
+   transform1 style: Rotating in place
+   ========================================================================= */
+/* Initial state */
+.transform1 {
+  transform: scaleX(0); /* Start with a width of 0% */
+}
+
+/* Action to be executed when the element is visible */
+.transform1style {
+  transform: scaleX(1); /* Return to 100% width */
+}
+
+/* =========================================================================
+   transform2 style: Standing up from a fallen state
+   ========================================================================= */
+/* Initial state */
+.transform2 {
+  transform: perspective(400px) translateZ(-70px) rotateX(50deg);
+}
+
+/* Action to be executed when the element is visible */
+.transform2style {
+  transform: perspective(400px) translateZ(0px) rotateX(0deg);
+}
+
+/* =========================================================================
+   blur style: Appearing with a blur effect
+   ========================================================================= */
+/* Initial state (preparation class) */
+.blur {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: all 1s ease;
+}
+
+/* Class to be applied when the element enters the screen (final class) */
+.blurstyle {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* =========================================================================
+   transform3 style: Scaling up from a small size to full size
+   ========================================================================= */
+/* Keyframes (animation) settings */
+@keyframes transform3 {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(0.99);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Initial state */
+.transform3 {
+  transform: scale(0);
+}
+
+/* Action to be executed when the element is visible */
+.transform3style {
+  animation: transform3 0.3s ease-out 0.5s both;  /* Execute animation for 0.3s after a 0.5s delay */
+}

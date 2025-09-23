@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+
+
+/* slide */
+
+#mainimg {
+	width: 100%;
+	height: 0;
+	padding-top: 50%;
+	position: relative;
+	border-radius: 20px;
+}
+
+.slide {
+	width: 100%;height: 100%;
+	position: absolute;right: 0px;top: 0px;
+	display: flex;
+	align-items: center;
+	opacity: 0;
+	transition: opacity 1s;	
+}
+
+
+.slide1 {
+	background: url('../images//group-photo1.webp') no-repeat center center / cover;	
+}
+
+
+.slide2 {
+	background: url('../images//group-photo2.webp') no-repeat center center / cover;	
+}
+
+
+.slide3 {
+	background: url('../images/group-photo3.webp') no-repeat center center / cover;	
+
+}
+
+
+
+
+
